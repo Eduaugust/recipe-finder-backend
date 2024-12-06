@@ -14,5 +14,5 @@ model Recipe {
   ingredients String[]
   instructions String
   recipeImage String
-  isFavorite Boolean
+  isFavorite Boolean @default(false)
 }

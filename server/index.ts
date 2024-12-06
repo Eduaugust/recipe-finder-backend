@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
   res.send('Hello, Recipe Finder Backend!');
 });
 
-app.use('/recipes', recipesRoute);
+app.use('/api/recipes', recipesRoute);
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);

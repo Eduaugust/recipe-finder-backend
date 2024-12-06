@@ -8,9 +8,10 @@ export const getAllRecipes = async () => {
 };
 
 export const getRecipeById = async (id: string) => {
-  return await prisma.recipe.findUnique({
+  const recipe = await prisma.recipe.findUnique({
     where: { id: id },
   });
+  return recipe
 };
 
 export const changeFavoriteRecipe = async (data: {id: string, isFavorite: boolean}) => {
@@ -25,7 +26,11 @@ export const changeFavoriteRecipe = async (data: {id: string, isFavorite: boolea
 export const addRecipe = async (data: RecipeDTO) => {
   return await prisma.recipe.create({
     data: {
-      data
+      description: data.description,
+      instructions: data.instructions,
+      recipeImage: '',
+      title: data.title,
+      ingredients: data.ingredients,
     },
   });
 };

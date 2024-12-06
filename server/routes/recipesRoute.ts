@@ -11,7 +11,7 @@ router.get('/:id', getRecipeById);
 
 router.post('/create', addRecipe);
 
-router.post('/favorite', changeFavoriteRecipe);
+router.post('/favorites', changeFavoriteRecipe);
 
 
 export default router;

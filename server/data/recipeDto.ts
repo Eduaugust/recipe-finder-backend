@@ -2,15 +2,15 @@ export class RecipeDTO {
   title: string;
   description: string;
   ingredients: string[];
-  instructions: string[];
-  recipeImage: string;
-  isFavorite: boolean
+  instructions: string;
+  recipeImage?: string;
+  isFavorite?: boolean
 
   constructor(
     title: string,
     description: string,
     ingredients: string[],
-    instructions: string[],
+    instructions: string,
     recipeImage: string,
     isFavorite: boolean
   ) {

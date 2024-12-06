@@ -1,6 +1,10 @@
 import { Request, Response, NextFunction } from 'express';
 import * as recipeService from '../services/recipeService';
 import { RecipeDTO } from '../data/recipeDto';
+import multer from 'multer';
+
+const upload = multer({ storage: multer.memoryStorage() });
+
 
 export const getAllRecipes = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
@@ -35,9 +39,9 @@ export const addRecipe = async (req: Request, res: Response, next: NextFunction)
       description: req.body?.description,
       ingredients: req.body?.ingredients,
       instructions: req.body?.instructions,
-      recipeImage: req.body?.recipeImage,
-      isFavorite: req.body?.isFavorite,
+      recipeImage: req.file ? req.file.buffer.toString('base64') : undefined,
     };
+
     const response = await recipeService.addRecipe(data);
     if (response.type === 'Success') {
       res.status(response.status).json({ message: response.message, data: response.data });
