@@ -28,7 +28,7 @@ export const addRecipe = async (data: RecipeDTO) => {
     data: {
       description: data.description,
       instructions: data.instructions,
-      recipeImage: '',
+      recipeImage: data.recipeImage ? data.recipeImage : '',
       title: data.title,
       ingredients: data.ingredients,
     },

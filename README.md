@@ -25,8 +25,14 @@ This is the backend of the Recipe Finder app, built with Express.
 ## Database
 
 1. Start the database:
+## Database
+
+1. Create the database and update the `.env` file with the database URL.
+
+2. Run the following commands:
   ```bash
-  yarn db:up
+  yarn prisma db push --schema="./server/infra/prisma/schema.prisma"
+  yarn prisma generate --schema="./server/infra/prisma/schema.prisma"
   ```
 
 ## Running the Server
